@@ -7,6 +7,34 @@
  * @package creativeweb
  */
 
+function creativeweb_enqueue_scripts(){
+    wp_enqueue_style('creative-general', get_template_directory_uri().'/assets/css/general.css', array(), '1.0', 'all');
+	
+	wp_enqueue_script('creative-script',get_template_directory_uri().'/assets/js/script.js', array(), '1.0', true);
+	
+	
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+	
+
+	// wp_register_style();
+	// wp_register_script();
+	
+}
+add_action('wp_enqueue_scripts', 'creativeweb_enqueue_scripts' );
+
+
+function creativeweb_register_menus(){
+	register_nav_menus(array(
+		'header_nav' => 'Header Navigation',
+		'footer_nav' => 'Footer Navigation'
+	));
+}
+add_action('after_setup_theme', 'creativeweb_register_menus', 0 );
+
+
+
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );

@@ -25,13 +25,13 @@ function creativeweb_enqueue_scripts(){
 add_action('wp_enqueue_scripts', 'creativeweb_enqueue_scripts' );
 
 
-function creativeweb_register_menus(){
+function creativeweb_theme_init(){
 	register_nav_menus(array(
 		'header_nav' => 'Header Navigation',
 		'footer_nav' => 'Footer Navigation'
 	));
 }
-add_action('after_setup_theme', 'creativeweb_register_menus', 0 );
+add_action('after_setup_theme', 'creativeweb_theme_init', 0 );
 
 
 

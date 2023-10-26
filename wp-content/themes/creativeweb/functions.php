@@ -30,8 +30,26 @@ function creativeweb_theme_init(){
 		'header_nav' => 'Header Navigation',
 		'footer_nav' => 'Footer Navigation'
 	));
+	add_theme_support(
+		'html5',
+		array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+			'style',
+			'script',
+		)
+	);
 }
 add_action('after_setup_theme', 'creativeweb_theme_init', 0 );
+
+function creativeweb_custom_search($form) {
+	$form = "html for form";
+	return $form;
+}
+add_filter('get_search_form', 'creativeweb_custom_search');
 
 
 

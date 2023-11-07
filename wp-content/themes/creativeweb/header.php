@@ -33,4 +33,7 @@ test1
 		'container' => 'div',
 		'fallback_cb' => 'wp_page_menu'
 	)
-); ?>
+); 
+$name = 'Svet Iv "Svetiv"';
+?>
+<input type="text" name="author" value="<?php echo esc_attr($name); ?>"/>

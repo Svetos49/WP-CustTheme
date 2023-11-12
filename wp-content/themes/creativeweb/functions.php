@@ -42,6 +42,19 @@ function creativeweb_theme_init(){
 			'script',
 		)
 	);
+
+	load_theme_textdomain( 'creativeweb', get_template_directory() . '/languages' );
+	add_theme_support( 'post-thumbnails' );
+
+	add_theme_support( 'post-formats', 
+	array(
+        'video',
+		'quote',
+		'image',
+		'gallery',
+	)
+	);
+	add_post_type_support('car', 'post-formats');
 }
 add_action('after_setup_theme', 'creativeweb_theme_init', 0 );
 
@@ -80,12 +93,13 @@ function creativeweb_register_post_type() {
 		'items_list_navigation' => esc_html_x( 'Cars list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'creativeweb' ),
 		'items_list'            => esc_html_x( 'Cars list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'creativeweb' ),
 	 ), 
-	 'supports' => array('title', 'editor', 'author', 'thumbnail'),
+	 'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'trackbacks', 'page-attributes', 'post-formats'),
 	 'public' => true,
 	 'publicly_queryable' => true,
 	 'show_ui' => true,
 	 'show_in_menu' => true,
 	 'has_archive' => true,
+	  'hierarchical' => true,
 	);	
   register_post_type('car', $args);
 }

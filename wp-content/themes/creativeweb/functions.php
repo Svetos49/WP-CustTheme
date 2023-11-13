@@ -100,10 +100,18 @@ function creativeweb_register_post_type() {
 	 'show_in_menu' => true,
 	 'has_archive' => true,
 	  'hierarchical' => true,
+	  'rewrite' => array('slug' => 'cars'),
+	  'show_in_rest' => true,
 	);	
   register_post_type('car', $args);
 }
 add_action('init', 'creativeweb_register_post_type');
+
+function creativeweb_rewrite_rules() {
+	creativeweb_register_post_type();
+	flush_rewrite_rules();
+}
+add_action('after_switch_theme', 'creativeweb_rewrite_rules');
 
 
 

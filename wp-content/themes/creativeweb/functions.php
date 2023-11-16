@@ -99,7 +99,6 @@ function creativeweb_register_post_type() {
 	 'show_ui' => true,
 	 'show_in_menu' => true,
 	 'has_archive' => true,
-	  'hierarchical' => true,
 	  'rewrite' => array('slug' => 'cars'),
 	  'show_in_rest' => true,
 	);	

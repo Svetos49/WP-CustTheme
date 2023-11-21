@@ -80,6 +80,7 @@ $args = array(
 		'menu_name'         => esc_html__( 'Brand', 'creativeweb' ),
 	),
 	'show_ui' => true,
+	'show_admin_column' => true,
 	'rewrite' => array('slug' => 'brands'),
 	'query_var' => true,
 	'show_in_rest' => true,
@@ -108,6 +109,7 @@ $args = array(
 			
 		),
 		'show_ui' => true,
+		'show_admin_column' => true,
 		'rewrite' => array('slug' => 'manufacture'),
 		'query_var' => true,
 		'show_in_rest' => true,
@@ -152,6 +154,7 @@ $args = array(
 	 'publicly_queryable' => true,
 	 'show_ui' => true,
 	 'show_in_menu' => true,
+	  'show_admin_column' => true,
 	 'has_archive' => true,
 	  'rewrite' => array('slug' => 'cars'),
 	  'show_in_rest' => true,

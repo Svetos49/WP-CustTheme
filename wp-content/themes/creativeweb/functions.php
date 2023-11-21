@@ -65,6 +65,60 @@ function creativeweb_custom_search($form) {
 add_filter('get_search_form', 'creativeweb_custom_search');
 
 function creativeweb_register_post_type() {
+$args = array(
+    'hierarchical' => false,
+	'labels' => array(
+		'name'              => esc_html_x( 'Brands', 'taxonomy general name', 'creativeweb' ),
+		'singular_name'     => esc_html_x( 'Brand', 'taxonomy singular name', 'creativeweb'' ),
+		'search_items'      => esc_html__( 'Search Brands', 'creativeweb' ),
+		'all_items'         => esc_html__( 'All Brands', 'creativeweb' ),
+		'parent_item'       => esc_html__( 'Parent Brand', 'creativeweb' ),
+		'parent_item_colon' => esc_html__( 'Parent Brand:', 'creativeweb' ),
+		'edit_item'         => esc_html__( 'Edit Brand', 'creativeweb' ),
+		'update_item'       => esc_html__( 'Update Brand', 'creativeweb' ),
+		'add_new_item'      => esc_html__( 'New Brand Name', 'creativeweb'' ),
+		'menu_name'         => esc_html__( 'Brand', 'creativeweb' ),
+	),
+	'show_ui' => true,
+	'rewrite' => array('slug' => 'brands'),
+	'query_var' => true,
+	'show_in_rest' => true,
+);
+
+	register_taxonomy('brand', array('car'), $args);
+
+	unset($args);
+
+
+
+
+	$args = array(
+		'hierarchical' => true,
+		'labels' => array(
+			'name'              => esc_html_x( 'Manufactures', 'taxonomy general name', 'creativeweb' ),
+			'singular_name'     => esc_html_x( 'Manufacture', 'taxonomy singular name', 'creativeweb' ),
+			'search_items'      => esc_html__( 'Search Manufactures', 'creativeweb' ),
+			'all_items'         => esc_html__( 'All Manufactures', 'creativeweb' ),
+			'parent_item'       => esc_html__( 'Parent Manufacture', 'creativeweb' ),
+			'parent_item_colon' => esc_html__( 'Parent Manufacture:', 'creativeweb' ),
+			'edit_item'         => esc_html__( 'Edit Manufacture', 'creativeweb' ),
+			'update_item'       => esc_html__( 'Update Manufacture', 'creativeweb' ),
+			'add_new_item'      => esc_html__( 'New Manufacture Name', 'creativeweb' ),
+			'menu_name'         => esc_html__( 'Manufacture', 'creativeweb' ),
+			
+		),
+		'show_ui' => true,
+		'rewrite' => array('slug' => 'manufacture'),
+		'query_var' => true,
+		'show_in_rest' => true,
+	);
+	
+		register_taxonomy('manufacture', array('car'), $args);
+	
+		unset($args);
+	
+
+	
   $args = array(
 	'label' => esc_html__('Cars', 'creativeweb'),
 	 'labels' => array(

@@ -86,7 +86,9 @@ $args = array(
 	'show_in_rest' => true,
 );
 
-	register_taxonomy('brand', array('car'), $args);
+	 if(!taxonomy_exists('brand')) {
+		register_taxonomy('brand', array('car'), $args);
+	 }
 
 	unset($args);
 

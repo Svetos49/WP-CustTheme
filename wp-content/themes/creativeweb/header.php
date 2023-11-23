@@ -21,19 +21,12 @@
 </head>
 
 <body <?php body_class(); ?>>
-
-test1
-
 <?php wp_body_open(); ?>
 
-<?php wp_nav_menu(
-	array(
-		'theme_location' => 'header_nav',
-		'menu_class' => 'myClass',
-		'container' => 'div',
-		'fallback_cb' => 'wp_page_menu'
-	)
-); 
-$name = 'Svet Iv "Svetiv"';
-?>
-<input type="text" name="author" value="<?php echo esc_attr($name); ?>"/>
+
+<?php
+if(is_tax()) {
+  echo 'Header for taxonomy pages';
+} else{
+  echo 'Simple header';
+}

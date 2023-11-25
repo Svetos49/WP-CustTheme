@@ -21,5 +21,5 @@ while ( have_posts() ) :
     endif;
 
 endwhile; // End of the loop.
-
+get_sidebar('cars');
 get_footer();
